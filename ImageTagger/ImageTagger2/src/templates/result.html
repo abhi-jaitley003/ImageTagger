@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResultPage</title>
+</head>
+<body>
+
+
+    {% if downloadStatus!=200 or imageTagstatus!=200   %}
+        <p> {{errmsg}} </p>
+    {% else %}
+        {% for key in result %}
+                <img width="50%" src="{{ key }}" >
+                {% for tag in result[key] %}
+                    <ul>{{ tag }}</ul>
+                {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>
